@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#3b211b">
+  <meta name="description" content="El-Madina Digital Signage — informasi masjid modern, jadwal shalat dan countdown.">
+  <title>El-Madina • Digital Signage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">۞</div>
+        <div>
+          <div class="eyebrow">MASJID</div>
+          <h1>El-Madina</h1>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span id="locationBadge">Mendeteksi lokasi…</span>
+        <button id="settingsBtn" class="icon-btn" title="Pengaturan">⚙</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-grid">
+        <div class="hero-card">
+          <div class="hero-content">
+            <div class="eyebrow">WAKTU SEKARANG</div>
+            <div id="clock" class="clock">--:--:--</div>
+            <div id="gregorianDate" class="date-line">—</div>
+            <div id="hijriDate" class="date-line muted">—</div>
+            <div class="hero-status" id="statusText">Memuat jadwal shalat…</div>
+          </div>
+          <div class="ornament">ﷲ</div>
+        </div>
+
+        <div class="next-card">
+          <div class="eyebrow">SHALAT BERIKUTNYA</div>
+          <div id="nextPrayerName" class="next-name">—</div>
+          <div id="nextPrayerTime" class="next-time">--:--</div>
+          <div class="countdown-label">Menuju waktu shalat</div>
+          <div id="countdown" class="countdown">00:00:00</div>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        </div>
+      </section>
+
+      <section class="prayer-section">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">JADWAL HARI INI</div>
+            <h2>Waktu Shalat</h2>
+          </div>
+          <button id="refreshBtn" class="ghost-btn">↻ Perbarui</button>
+        </div>
+        <div id="prayerGrid" class="prayer-grid"></div>
+      </section>
+
+      <section class="info-grid">
+        <article class="info-card">
+          <div class="card-icon">☾</div>
+          <div><span class="card-label">KALENDER HIJRIAH</span><strong id="hijriFull">—</strong></div>
+        </article>
+        <article class="info-card">
+          <div class="card-icon">⌖</div>
+          <div><span class="card-label">LOKASI</span><strong id="coords">—</strong></div>
+        </article>
+        <article class="info-card">
+          <div class="card-icon">✦</div>
+          <div><span class="card-label">METODE</span><strong>Kemenag RI</strong></div>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel">
+          <div class="panel-head"><div><span class="eyebrow">PENGUMUMAN</span><h2>Informasi Masjid</h2></div><span class="live-dot">LIVE</span></div>
+          <div id="announcementList" class="announcement-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head"><div><span class="eyebrow">HARI INI</span><h2>Agenda</h2></div></div>
+          <div id="agendaList" class="agenda-list"></div>
+        </article>
+      </section>
+
+      <section class="ticker-wrap">
+        <div class="ticker-label">EL-MADINA</div>
+        <div class="ticker"><div id="tickerText">Selamat datang di Masjid El-Madina • Semoga hari Anda dipenuhi keberkahan.</div></div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© El-Madina Digital Signage</span>
+      <span id="lastUpdated">—</span>
+    </footer>
+  </div>
+
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeModal" class="close-btn">×</button>
+      <span class="eyebrow">PENGATURAN</span>
+      <h2>Konfigurasi Display</h2>
+      <label>Nama lokasi
+        <input id="masjidNameInput" value="El-Madina">
+      </label>
+      <label>Mode lokasi
+        <select id="locationMode">
+          <option value="auto">Otomatis dari perangkat</option>
+          <option value="cibinong">Tetapkan Cibinong, Bogor</option>
+        </select>
+      </label>
+      <label>Durasi slide (detik)
+        <input id="slideSeconds" type="number" min="5" max="120" value="15">
+      </label>
+      <button id="saveSettings" class="primary-btn">Simpan</button>
+      <p class="small-note">Lokasi otomatis membutuhkan izin browser. Jika ditolak, aplikasi memakai lokasi Cibinong sebagai fallback.</p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "masjid": {
+    "name": "El-Madina",
+    "city": "Cibinong",
+    "regency": "Bogor",
+    "province": "Jawa Barat",
+    "country": "Indonesia",
+    "theme": {
+      "primary": "mahogany",
+      "secondary": "ivory",
+      "accent": "gold"
+    }
+  },
+  "features": [
+    "Jadwal shalat otomatis",
+    "Countdown menuju shalat terdekat",
+    "Lokasi perangkat",
+    "Fallback Cibinong Bogor",
+    "Kalender Hijriah",
+    "Pengumuman",
+    "Agenda",
+    "Running text",
+    "Dashboard pengaturan lokal",
+    "Responsive TV, desktop, tablet, mobile"
+  ]
+}
